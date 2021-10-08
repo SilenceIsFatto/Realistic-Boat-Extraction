@@ -1,3 +1,10 @@
+/*  This handles all actions
+
+    Execution on: Client
+	
+	- Silence
+*/
+
 varHolder = "CBA_B_InvisibleTargetVehicle" createVehicle position player;
 varHolder setPos [0,0,0];
 
