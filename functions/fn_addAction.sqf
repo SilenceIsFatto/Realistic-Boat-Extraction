@@ -2,7 +2,7 @@
 
     Execution on: Client
 	
-	- Silence
+	- Silence/Stevio
 */
 
 varHolder = "CBA_B_InvisibleTargetVehicle" createVehicle position player;
