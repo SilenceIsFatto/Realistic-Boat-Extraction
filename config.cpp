@@ -1,21 +1,25 @@
 class CfgPatches
 {
-	class MS_RBE
+	class RBE
 	{
-		name="MS_RBE";
-		author="Mercury Studios - Silence";
+		units[] = {};
+		weapons[] = {};
+		author="Silence";
 		requiredVersion=1.9400001;
 		requiredAddons[]={};
 		version=0.1;
 	};
 };
+
+#include "cfgEventHandlers.hpp"
+
 class CfgFunctions
 {
-	class MS_RBE
+	class RBE
 	{
 		class RBEFnc
 		{
-			file="\MS_RBE\functions";
+			file="\Realistic-Boat-Extraction\functions";
 			class addAction
 			{
 				postInit=1;
