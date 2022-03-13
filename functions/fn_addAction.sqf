@@ -29,10 +29,10 @@ heli = player;
 
 // Heli Eject Action - Boat Script Implemented by Silence#9762 (06/07/2021)
 readyAction = ['Ready','Eject Boat','',{
-	_vari = varHolder getVariable "BoatRiskyEject";
-	_variRadius = varHolder getVariable "BoatAttachRadius";
-	vic = nearestObjects [player, ["Ship"], _variRadius] select 0;
-	heli = nearestObjects [player, ["Air"], _variRadius] select 0;
+	_vari = player getVariable "BoatRiskyEject";
+	//_variRadius = player getVariable "BoatAttachRadius";
+	vic = nearestObjects [player, ["Ship"], 10] select 0;
+	heli = nearestObjects [player, ["Air"], 10] select 0;
 	detach vic,
 	vic allowDamage false,
 	heli allowDamage false,
@@ -47,8 +47,8 @@ readyAction = ['Ready','Eject Boat','',{
 },{isAttached}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions"], readyAction] call ace_interact_menu_fnc_addActionToObject;
 
-boatAction = ['Attach','Attach Ropes','',{_variRadius = varHolder getVariable "BoatAttachRadius";vic = nearestObjects [player, ["Ship"], _variRadius] select 0;heli = nearestObjects [player, ["Air"], _variRadius] select 0; hint str vic, [vic, heli] call BIS_fnc_attachToRelative, isAttached = true},{!isAttached && vehicle player != player}] call ace_interact_menu_fnc_createAction;
+boatAction = ['Attach','Attach Ropes','',{vic = nearestObjects [player, ["Ship"], 10] select 0;heli = nearestObjects [player, ["Air"], 10] select 0; hint str vic, [vic, heli] call BIS_fnc_attachToRelative, isAttached = true},{!isAttached && vehicle player != player}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions"], boatAction] call ace_interact_menu_fnc_addActionToObject;
 
-releaseAction = ['Detach','Detach Ropes','',{_variRadius = varHolder getVariable "BoatAttachRadius"; vic = nearestObjects [player, ["Ship"], _variRadius] select 0; detach vic, isAttached = false},{isAttached}] call ace_interact_menu_fnc_createAction;
+releaseAction = ['Detach','Detach Ropes','',{vic = nearestObjects [player, ["Ship"], 10] select 0; detach vic, isAttached = false},{isAttached}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions"], releaseAction] call ace_interact_menu_fnc_addActionToObject;
